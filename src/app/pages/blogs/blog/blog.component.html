@@ -1,0 +1,41 @@
+<div class="page-container">
+  @if (isLoading) {
+    <app-loading message="Loading article..." size="large"></app-loading>
+  } @else if (error) {
+    <div class="error-message">
+      <p>{{ error }}</p>
+      <button class="btn-secondary" routerLink="/blogs">← Back to Blog</button>
+    </div>
+  } @else if (blog) {
+    <article class="blog-article">
+      <!-- Header -->
+      <header class="article-header">
+        <div class="article-meta">
+          <span class="date">{{ blog.publishedDate | date:'MMMM d, y' }}</span>
+          @if (blog.readTime) {
+            <span class="read-time">{{ blog.readTime }} min read</span>
+          }
+        </div>
+        <h1 class="article-title">{{ blog.title }}</h1>
+        @if (blog.author) {
+          <p class="article-author">by {{ blog.author }}</p>
+        }
+        <div class="article-tags">
+          @for (tag of blog.tags; track tag) {
+            <span class="tag">{{ tag }}</span>
+          }
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="article-content" [appMarkdown]="blog.content"></div>
+
+      <!-- Footer -->
+      <footer class="article-footer">
+        <div class="article-actions">
+          <button class="btn-secondary" routerLink="/blogs">← Back to Blog</button>
+        </div>
+      </footer>
+    </article>
+  }
+</div>

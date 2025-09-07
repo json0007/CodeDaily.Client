@@ -1,0 +1,54 @@
+<div class="page-container">
+  <div class="hero-section">
+    <h1>Development Insights</h1>
+    <p class="hero-subtitle">Stay up to date with the latest insights, tutorials, and best practices in software development. Our blog covers everything from lanugage and framework advancements, to cloud computing, AI, and modern application architecture, helping developers build smarter, faster, and more efficient applications.</p>
+  </div>
+  
+  @if (isLoading) {
+    <app-loading message="Loading blog articles..." size="large"></app-loading>
+  } @else if (error) {
+    <div class="error-message">
+      <p>{{ error }}</p>
+    </div>
+  } @else {
+    <div class="content-grid">
+      @for (blog of blogs; track blog.id) {
+        <app-card
+          [customClass]="blog.isFeatured ? 'featured' : ''"
+          (actionClick)="onBlogCardClick($event)">
+          
+          <ng-template #cardHeader>
+            @if(blog.isFeatured)
+            {
+              <span class="badge">Latest</span>
+            }
+            <span class="date">{{ blog.publishedDate | date:'MMMM d, y' }}</span>
+          </ng-template>
+          
+          <ng-template #cardBody>
+            @if (blog.isFeatured) {
+              <h2>{{ blog.title }}</h2>
+            } @else {
+              <h3>{{ blog.title }}</h3>
+            }
+            <p class="description">{{ blog.description }}</p>
+            <div class="tags">
+              @for (tag of blog.tags; track tag) {
+                <span class="tag">{{ tag }}</span>
+              }
+            </div>
+          </ng-template>
+          
+          <ng-template #cardFooter>
+            <button class="btn-secondary" [routerLink]="[blog.slug]">Read Article →</button>
+          </ng-template>
+          
+        </app-card>
+      }
+    </div>
+
+    <div class="load-more-section">
+      <button class="btn-secondary">Load More Articles</button>
+    </div>
+  }
+</div>

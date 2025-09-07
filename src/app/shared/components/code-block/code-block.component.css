@@ -1,0 +1,134 @@
+
+.code-container {
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 1.5rem 0;
+  padding:.5rem;
+
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.35rem 1rem;
+}
+
+.language-badge {
+  color: #b0b0b0;
+  font-size: 0.75rem; 
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.copy-button-wrapper {
+  position: relative;
+}
+
+.copy-btn {
+  background: none;
+  border: none;
+  color: #b0b0b0;
+  padding: 0.25rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.copy-btn-text
+{
+  text-align: left;
+  margin-left: 0.25em;
+  width: 30px;
+}
+
+.copy-btn:hover {
+  color: #e8e8e8;
+}
+
+.copy-popup {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  background: #24292f;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 1;
+  transform: translateY(0);
+  animation: popupIn 0.2s ease-out, popupOut 0.3s ease-in 1.2s forwards;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.copy-popup::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  right: 0.75rem;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid #24292f;
+}
+
+@keyframes popupIn {
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popupOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-0.25rem);
+  }
+}
+
+pre {
+  margin: 0;
+  overflow-x: auto;
+  padding: 0 1rem 1rem 1rem;
+  line-height: 1.4;
+  
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.875rem;
+
+}
+
+/* Custom scrollbar for code overflow */
+pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+pre::-webkit-scrollbar-track {
+  background: #444c61;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: #545770;
+  border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+  background: #757a9c;
+}
+

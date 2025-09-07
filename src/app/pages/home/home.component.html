@@ -1,0 +1,56 @@
+<div class="page-container">
+  <div class="hero-section">
+    <h1>Welcome to Code Daily</h1>
+    <p class="hero-subtitle">Your source for application development insights, tutorials, and industry news</p>
+    <div class="hero-actions">
+      <button class="btn-primary" routerLink="/blogs">Read Latest Blog</button>
+      <button class="btn-secondary" routerLink="/about">Learn More</button>
+    </div>
+  </div>
+  
+  <div class="features-section">
+    <div class="features-grid">
+      <app-card [customClass]="'home-feature-card'">
+        <ng-template #cardHeader>
+          <h3>📝 Latest Blog Posts</h3>
+        </ng-template>
+        
+        <ng-template #cardBody>
+          <p class="description">Stay updated with the latest insights in application development</p>
+        </ng-template>
+        
+        <ng-template #cardFooter>
+          <button class="btn-secondary" routerLink="/blogs">Browse All →</button>
+        </ng-template>
+      </app-card>
+      
+      <app-card [customClass]="'home-feature-card'">
+        <ng-template #cardHeader>
+          <h3>📄 Custom Templates</h3>
+        </ng-template>
+        
+        <ng-template #cardBody>
+          <p class="description">Access professional blog templates and layouts</p>
+        </ng-template>
+        
+        <ng-template #cardFooter>
+          <button class="btn-secondary" routerLink="/templates">View Templates →</button>
+        </ng-template>
+      </app-card>
+      
+      <app-card [customClass]="'home-feature-card'">
+        <ng-template #cardHeader>
+          <h3>👨‍💻 About Me</h3>
+        </ng-template>
+        
+        <ng-template #cardBody>
+          <p class="description">Learn about my background and expertise in development</p>
+        </ng-template>
+        
+        <ng-template #cardFooter>
+          <button class="btn-secondary" routerLink="/about">Read More →</button>
+        </ng-template>
+      </app-card>
+    </div>
+  </div>
+</div>

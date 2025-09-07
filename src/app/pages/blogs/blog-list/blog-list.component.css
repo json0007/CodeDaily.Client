@@ -1,0 +1,87 @@
+/* Newsletter-specific styles only */
+
+/* Make all card components grid items */
+::ng-deep .content-grid > app-card {
+  display: contents;
+}
+
+/* Featured Card Width - applied to the inner card element */
+::ng-deep .content-grid .card.featured {
+  grid-column: 1 / -1 !important;
+}
+
+/* Featured card content styles - for ng-template content */
+::ng-deep .card.featured h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+::ng-deep .card.featured h3 {
+  color: #ffffff;
+}
+
+::ng-deep .card.featured .description,
+::ng-deep .card.featured p {
+  color: #ffffffe6;
+  font-size: 1.1rem;
+}
+
+::ng-deep .card.featured .tag {
+  background: #ffffff33;
+  color: #ffffff;
+}
+
+::ng-deep .card.featured .badge {
+  background: #ffffff33;
+  color: #ffffff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+::ng-deep .card.featured .date {
+  color: #ffffffcc;
+}
+
+::ng-deep .card.featured .btn-primary,
+::ng-deep .card.featured .btn-secondary {
+  color: #ffffff;
+  background: #ffffff33;
+  border: 1px solid #ffffff4d;
+}
+
+::ng-deep .card.featured .btn-primary:hover,
+::ng-deep .card.featured .btn-secondary:hover {
+  background: #ffffff4d;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  ::ng-deep .card.featured {
+    grid-column: span 1;
+  }
+
+  ::ng-deep .card.featured h2 {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  ::ng-deep .card.featured h2 {
+    font-size: 1.5rem;
+  }
+}
+
+
+
+/* Load More Section */
+.load-more-section {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+

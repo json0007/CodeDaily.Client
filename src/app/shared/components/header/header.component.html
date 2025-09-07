@@ -1,0 +1,41 @@
+<!-- Top navigation bar -->
+<header class="top-nav">
+  <div class="nav-container">
+    <!-- Logo/Brand -->
+    <div class="nav-brand">
+      <a class="logo-link" routerLink="/"><h3>CodeDaily<h4>.dev</h4></h3></a>
+    </div>
+    
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+      <ul class="nav-menu">
+        <li><a routerLink="/blogs">Blogs</a></li>
+        <li><a routerLink="/templates">Templates</a></li>
+        <li><a routerLink="/about">About</a></li>
+      </ul>
+      <app-theme-toggle></app-theme-toggle>
+    </nav>
+    
+    <!-- Mobile hamburger button -->
+    <button class="hamburger" (click)="toggleMenu()" [class.active]="isMenuOpen">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  
+  <!-- Mobile dropdown menu -->
+  <nav class="mobile-dropdown" [class.active]="isMenuOpen">
+    <ul class="mobile-nav-menu">
+      <li><a routerLink="/blogs" (click)="closeMenu()">Blogs</a></li>
+      <li><a routerLink="/templates" (click)="closeMenu()">Templates</a></li>
+      <li><a routerLink="/about" (click)="closeMenu()">About</a></li>
+    </ul>
+    <div class="mobile-theme-toggle">
+      <app-theme-toggle></app-theme-toggle>
+    </div>
+  </nav>
+</header>
+
+<!-- Mobile backdrop -->
+<div class="mobile-backdrop" [class.active]="isMenuOpen" (click)="closeMenu()"></div>

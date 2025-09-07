@@ -1,0 +1,22 @@
+<div class="card" [ngClass]="customClass">
+  <!-- Card Header Template -->
+  @if (cardHeader) {
+    <div class="card-header">
+      <ng-container [ngTemplateOutlet]="cardHeader"></ng-container>
+    </div>
+  }
+
+  <!-- Card Body Template -->
+  @if (cardBody) {
+    <div class="card-body">
+      <ng-container [ngTemplateOutlet]="cardBody"></ng-container>
+    </div>
+  }
+
+  <!-- Card Footer Template -->
+  @if (cardFooter) {
+    <div class="card-footer">
+      <ng-container [ngTemplateOutlet]="cardFooter"></ng-container>
+    </div>
+  }
+</div>

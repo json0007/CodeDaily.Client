@@ -1,0 +1,17 @@
+/* Template-specific styles only */
+
+.template-features {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 0 0 1rem 0;
+}
+
+.feature {
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
