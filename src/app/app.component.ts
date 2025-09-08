@@ -10,5 +10,5 @@ import { BreadcrumbComponent } from './shared/components/breadcrumb/breadcrumb.c
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  protected readonly title = signal('MyCodeDaily.Client');
+  protected readonly title = signal('CodeDaily.Client');
 }

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "MyCodeDaily.Client": {
+    "CodeDaily.Client": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -57,10 +57,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "MyCodeDaily.Client:build:production"
+              "buildTarget": "CodeDaily.Client:build:production"
             },
             "development": {
-              "buildTarget": "MyCodeDaily.Client:build:development"
+              "buildTarget": "CodeDaily.Client:build:development"
             }
           },
           "defaultConfiguration": "development"
