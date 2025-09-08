@@ -1,0 +1,59 @@
+name: Deploy Angular App to EC2
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Angular app
+        run: npm run build -- --configuration=production
+
+      - name: Prepare deployment directory
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ec2-user
+          key: ${{ secrets.EC2_DEPLOY_KEY }}
+          script: |
+            sudo rm -rf /var/www/CodeDaily.Client/*
+            sudo mkdir -p /var/www/CodeDaily.Client
+            sudo chown -R ec2-user:ec2-user /var/www/CodeDaily.Client
+
+      - name: Deploy build files to EC2
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ec2-user
+          key: ${{ secrets.EC2_DEPLOY_KEY }}
+          source: "dist/"
+          target: "/var/www/CodeDaily.Client/"
+    
+      - name: Set correct permissions and restart Nginx
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ec2-user
+          key: ${{ secrets.EC2_DEPLOY_KEY }}
+          script: |
+            sudo chown -R nginx:nginx /var/www/CodeDaily.Client
+            sudo chmod -R 755 /var/www/CodeDaily.Client
+            sudo nginx -t
+            sudo systemctl restart nginx
