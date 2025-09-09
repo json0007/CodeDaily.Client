@@ -45,6 +45,8 @@
   --breadcrumb-bg: #1a1b26;
   --breadcrumb-text: #888888;
   --breadcrumb-active: #b0b0b0;
+
+   --toggle-button-bg: #f0f2f5;
 }
 
 /* Explicit light theme */
@@ -68,6 +70,8 @@
   --breadcrumb-bg: #f8f9fa;
   --breadcrumb-text: #6c757d;
   --breadcrumb-active: #495057;
+  --toggle-button-bg: #8b5cf6;
+ 
 }
 
 
